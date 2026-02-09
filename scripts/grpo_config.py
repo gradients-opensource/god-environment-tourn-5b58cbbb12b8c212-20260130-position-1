@@ -312,7 +312,7 @@ def get_training_json(train_info: dict) -> dict:
         "distributed": config.get("distributed", "ddp"),
         "gradient_checkpointing": get_gradient_checkpointing(model_name),
         "gradient_accumulation_steps": 4,
-        "vllm_gpu_memory_utilization": 0.2 if config["gpu_count"] > 1 and "environment_name" in train_info["dataset_type"] else config.get("vllm_gpu_memory_utilization", 0.4),
+        "vllm_gpu_memory_utilization": 0.3 if config["gpu_count"] > 1 and "environment_name" in train_info["dataset_type"] else config.get("vllm_gpu_memory_utilization", 0.4),
         "num_generations": 2,
         "use_vllm": get_use_vllm(model_architecture, model_name),
         "tensor_parallel": config.get("tensor_parallel", False),
